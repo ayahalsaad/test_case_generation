@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.router.test_case_generator_router import router
+from test_cases_app.router.test_case_generator_router import router
 
 app=FastAPI()
 
@@ -21,7 +21,7 @@ def read_root():
     return {"Hello": "World"}
 
 
-app.get("/health_check/")
+app.get("/health_check")
 def health_check():
     return True
 

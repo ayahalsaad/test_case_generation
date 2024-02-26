@@ -1,9 +1,7 @@
 import chromadb
 from langchain.vectorstores.chroma import Chroma
 from langchain.embeddings import OpenAIEmbeddings
-from app.data.config import OPEN_AI_KEY
-from langchain.text_splitter import CharacterTextSplitter
-
+from test_cases_app.data.config import AZURE_OPENAI_API_KEY
 
 
 class VectorDB():
@@ -19,7 +17,7 @@ class VectorDB():
             cls.vectordb= Chroma(
                 client=persistent_client,
                 collection_name=collection_name,
-                embedding_function=OpenAIEmbeddings(api_key = OPEN_AI_KEY))
+                embedding_function=OpenAIEmbeddings(api_key = AZURE_OPENAI_API_KEY))
 
         return cls.vectordb
     

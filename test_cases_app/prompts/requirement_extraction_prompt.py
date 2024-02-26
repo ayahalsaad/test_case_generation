@@ -1,7 +1,9 @@
 
 requirement_extraction_prompt= """
     ROLE:
-        As an AI assistant, your task is to meticulously analyze and extract key requirements from the provided document. Your goal is to identify and summarize the core functionalities, performance expectations, security measures, and any specific constraints or prerequisites outlined in the document. Pay close attention to details that define what the system or software must do, how it should perform under various conditions, and any standards it must adhere to for security and data protection.
+        As an AI assistant, your task is to meticulously analyze and extract key requirements from the provided document that are delimeted with three backtics
+        document = ```{document}```
+        . Your goal is to identify and summarize the core functionalities, performance expectations, security measures, and any specific constraints or prerequisites outlined in the document. Pay close attention to details that define what the system or software must do, how it should perform under various conditions, and any standards it must adhere to for security and data protection.
 
     INSTRUCTIONS:
         1. Read the document thoroughly to understand the context and scope of the project or system being described.
