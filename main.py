@@ -12,18 +12,20 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
-app.include_router(router)
-
-
-app.get("/")
+@app.get("/")
 def read_root():
     return {"Hello": "World"}
 
 
-app.get("/health_check")
+@app.get("/health_check")
 def health_check():
     return True
+
+
+app.include_router(router)
+
+
+
 
 
 
