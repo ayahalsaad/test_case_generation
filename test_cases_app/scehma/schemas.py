@@ -1,12 +1,22 @@
 from pydantic import BaseModel
+from typing import List, Optional
+from fastapi import UploadFile
+import humps
 
-class extract_text_from_pdf(BaseModel):
-    file_name : str
 
-class chunk_document(BaseModel):
-    chunk_size: int = 1000
-    overlap_size : int = 150
+def to_camel(string: str) -> str:
+    return humps.camelize(string)
 
-class llm_call(BaseModel) :
-    input : str
-    prompt : str
+def to_snake(string: str) -> str:
+    return humps.decamelize(string)
+
+
+class GenerateTestCasesInput(BaseModel):
+    file: Optional[UploadFile] = None
+    text: Optional[str] = None
+
+
+class GenerateTestCasesOutput(BaseModel):
+    test_cases: List[str]
+
+print (to_camel("ayah_alsaad"))

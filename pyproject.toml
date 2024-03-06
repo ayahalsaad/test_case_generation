@@ -106,6 +106,8 @@ pypdf = "^4.0.2"
 python-multipart = "^0.0.9"
 chardet = "^5.2.0"
 faiss-cpu = "^1.8.0"
+humps = "^0.2.2"
+pyhumps = "^3.8.0"
 
 
 [build-system]
