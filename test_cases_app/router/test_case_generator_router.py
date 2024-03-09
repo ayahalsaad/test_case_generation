@@ -1,4 +1,4 @@
-from fastapi import UploadFile, APIRouter, HTTPException
+from fastapi import UploadFile, APIRouter, HTTPException, Form
 from typing import Union
 from starlette.responses import StreamingResponse
 from test_cases_app.router.router_utils import get_text, send_message
@@ -12,7 +12,6 @@ async def upload_file_or_provide_text_requirements(
     file: Union[UploadFile] = None, text: Union[str, None] = None
 ) -> StreamingResponse:
     if file is None and text is None:
-        print("hi")
         raise HTTPException(status_code=400, detail="No PDF file or text provided")
     if file is not None and text is not None:
 

@@ -5,6 +5,7 @@ from pdfminer.high_level import extract_text_to_fp
 from io import StringIO
 from langchain.callbacks import AsyncIteratorCallbackHandler
 import asyncio
+import json
 from typing import Any
 
 
@@ -27,12 +28,12 @@ async def send_message(input_data: str, input_type: str) -> AsyncIterable[Any]:
 
     task = asyncio.create_task(
         wrap_done(
-            funcs[input_type](model, input_data),
+            funcs[input_type](model, input_data, callback),
             callback.done,
         ),
     )
     async for token in callback.aiter():
-        yield f"data: {token}\n\n"
+        yield f"data: {json.dumps({'token': token})}\n\n"
 
     await task
 
@@ -44,14 +45,14 @@ def get_text(file) -> str:
     return document_as_string
 
 
-async def get_test_cases(llm, content: str) -> str:
+async def get_test_cases(llm, content: str, callback) -> str:
     chunks = chunk_document(content)
     matching_chunks = get_relevant_documents_by_FAISS(chunks)
-    generated_test_cases = await generate_test_cases(llm, matching_chunks)
+    generated_test_cases = await generate_test_cases(llm, matching_chunks, callback)
     return generated_test_cases
 
 
-async def get_test_cases_text(llm, text: str) -> str:
+async def get_test_cases_text(llm, text: str, callback) -> str:
     document = text
-    generated_test_cases = await generate_test_cases(llm, document)
+    generated_test_cases = await generate_test_cases(llm, document, callback)
     return generated_test_cases
