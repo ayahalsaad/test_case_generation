@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.post("/upload")
 async def upload_file_or_provide_text_requirements(
-    file: Union[UploadFile] = None, text: Union[str, None] = None
+    file: Union[UploadFile] = None, text: Union[str, None] = Form(None)
 ) -> StreamingResponse:
     if file is None and text is None:
         raise HTTPException(status_code=400, detail="No PDF file or text provided")
