@@ -5,7 +5,6 @@ from pdfminer.high_level import extract_text_to_fp
 from io import StringIO
 from langchain.callbacks import AsyncIteratorCallbackHandler
 import asyncio
-import json
 from typing import Any
 
 
@@ -33,7 +32,8 @@ async def send_message(input_data: str, input_type: str) -> AsyncIterable[Any]:
         ),
     )
     async for token in callback.aiter():
-        yield f"data: {json.dumps({'token': token})}\n\n"
+        print(token)
+        yield token
 
     await task
 

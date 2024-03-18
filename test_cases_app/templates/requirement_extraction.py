@@ -21,7 +21,7 @@ requirement_extraction_prompt = """
         REMEMBER, accuracy and clarity in extracting and summarizing the requirements are crucial for ensuring that the subsequent phases of the project or development process are based on a solid understanding of what needs to be achieved.
         
     IMPORTANT:
-        this document is a CHUNKS OF A BRD (Business Requirement Document) and it is a critical part of the project initiation phase. It outlines the business objectives, functional requirements, and constraints of the project. 
+        this document is CHUNKS OF A BRD (Business Requirement Document) and it is a critical part of the project initiation phase. It outlines the business objectives, functional requirements, and constraints of the project. 
         The BRD serves as a reference for all stakeholders involved in the project, including business analysts, developers, testers, and project managers.
         I NEED ACCURATE AND DETAILED REQUIREMENTS EXTRACTED FROM THE DOCUMENT TO ENSURE THAT THE PROJECT IS SUCCESSFULLY INITIATED AND EXECUTED.
 

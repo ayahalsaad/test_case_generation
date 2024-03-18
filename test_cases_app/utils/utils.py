@@ -23,5 +23,6 @@ def chunk_document(
 def get_relevant_documents_by_FAISS(documents) -> List[Document]:
     db = FAISS.from_documents(documents, get_azure_embeddings())
     query = "Return the documents that have information about the PROJECT'S REQUIREMENTS (functional, non-functional, performance, etc.. ) of the project."
-    matching_documents = db.similarity_search_with_relevance_scores(query=query, k=10)
+    matching_documents = db.similarity_search(query=query, k=20)
     return matching_documents
+

@@ -33,9 +33,28 @@ generating_test_cases_prompt = """
 
         Test Case Prioritization: Prioritize the test cases based on the severity of the requirements.  
         Ensure that the most critical requirements are thoroughly tested.
+    
+    OUTPUT SCHEMA:
+        I WANT YOU TO INJECT ## AT THE END OF EVERY TEST CASES
+        THE OUTPUT WOULD LOOK LIKE 
+        HAPPY SCENARIO TEST CASES  ##
+        1. TEST CASE 1 ##
+        2. TEST CASE 2 ##
+        3. TEST CASE 3 ##
+        ..... (rest of the testcases)
+        SAD SCENARIO TEST CASES  ##
+        1. TEST CASE 1 ##
+        2. TEST CASE 2 ##
+        3. TEST CASE 3 ##
+        ... (rest of the testcases)
+        EDGE SCENARIO TEST CASES  ##
+        1. TEST CASE 1 ##
+        2. TEST CASE 2 ##
+        3. TEST CASE 3 ##
+        ... (rest of the testcases)
 
     GOAL:
-        By following these instructions, you will create a comprehensive set of test cases that ensure thorough testing coverage, 
+        By following these instructions, you will create a comprehensive set of test cases IN THE PORVIDED SCHEMA that ensure thorough testing coverage, 
         highlight potential areas of improvement, and contribute to the development of a high-quality software product.
         
     REQUIREMENTS:

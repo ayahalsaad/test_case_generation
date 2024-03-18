@@ -7,6 +7,7 @@ import humps
 def to_camel(string: str) -> str:
     return humps.camelize(string)
 
+
 def to_snake(string: str) -> str:
     return humps.decamelize(string)
 
@@ -18,5 +19,3 @@ class GenerateTestCasesInput(BaseModel):
 
 class GenerateTestCasesOutput(BaseModel):
     test_cases: List[str]
-
-print (to_camel("ayah_alsaad"))

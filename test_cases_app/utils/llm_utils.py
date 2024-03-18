@@ -4,10 +4,10 @@ from config import AZURE_ENDPOINT, OPENAI_API_KEY, AZURE_DEPLOYMENT_NAME
 from langchain_core.output_parsers import StrOutputParser
 
 
-from test_cases_app.prompts.requirement_extraction_prompt import (
+from test_cases_app.templates.requirement_extraction import (
     get_requirement_prompt,
 )
-from test_cases_app.prompts.test_cases_prompt import (
+from test_cases_app.templates.test_cases import (
     get_test_cases_prompt,
 )
 
@@ -55,5 +55,6 @@ async def generate_test_cases(llm, document, callback):
         output_variables=["test_cases"],
     )
     output = await final_chain.ainvoke({"document": document})
-    
+
     return output["test_cases"]
+
