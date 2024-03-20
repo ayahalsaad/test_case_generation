@@ -28,7 +28,7 @@ async def upload_file_or_provide_text_requirements(
             )
         else:
             raise HTTPException(
-                status_code=400, detail="Please provide a PDF file only!"
+                status_code=422, detail="Please provide a PDF file only!"
             )
     if text is not None:
         return StreamingResponse(
